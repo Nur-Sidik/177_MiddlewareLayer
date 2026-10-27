@@ -50,3 +50,8 @@ function errorResponse(res, message, status, details = null) {
         error: details
     })
 }
+
+//Joi Validation
+const biodataSchema = Joi.object({
+
+})
