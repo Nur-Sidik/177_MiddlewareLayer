@@ -131,3 +131,8 @@ app.post(
         return successResponse(res, "Data inserted successfully", result.rows[0], 201)
     }
 )
+
+//Methodt PUT
+app.put(
+
+)
