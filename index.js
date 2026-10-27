@@ -85,3 +85,10 @@ function validateBody(schema) {
         next()
     }
 }
+
+//Middleware Validation Params
+function validateParams(schema) {
+    return (req, res, next) => {
+
+    }
+}
