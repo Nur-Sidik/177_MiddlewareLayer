@@ -81,7 +81,7 @@ function validateBody(schema) {
                 }))
             )
         }
-        req.validatedBody = value
+        req.body = value
         next()
     }
 }
