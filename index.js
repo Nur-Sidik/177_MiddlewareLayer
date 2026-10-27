@@ -14,4 +14,4 @@ const pool = new Pool({
     port: 5432,
 })
 
-
+app.use(express.json())
