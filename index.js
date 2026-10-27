@@ -1,4 +1,4 @@
-import express  from 'express'
+import express from 'express'
 import pg from 'pg'
 import Joi from 'joi'
 
@@ -72,9 +72,9 @@ function validateBody(schema) {
         })
         if (error) {
             return errorResponse(
-                res, 
-                "Validation Error", 
-                400, 
+                res,
+                "Validation Error",
+                400,
                 error.details.map(item => ({
                     field: item.path.join('.'),
                     message: item.message
@@ -150,14 +150,39 @@ app.put(
         )
 
         if (result.rowCount === 0) {
-            return errorResponse(res, 
-                "Data not found", 
+            return errorResponse(
+                res,
+                "Data not found",
                 404)
         }
 
         return successResponse(
-            res, 
-            "Data updated successfully", 
+            res,
+            "Data updated successfully",
+            result.rows[0])
+    }
+)
+
+//Method DELETE
+app.delete(
+    '/biodata/:id',
+    validateParams(idschema),
+    async (req, res) => {
+        const { id } = req.params
+        const result = await pool.query(
+            'DELETE FROM biodata WHERE id = $1 RETURNING *',
+            [id])
+
+        if (result.rowCount === 0) {
+            return errorResponse(
+                res,
+                "Data not found",
+                404)
+        }
+
+        return successResponse(
+            res,
+            "Data deleted successfully",
             result.rows[0])
     }
 )
