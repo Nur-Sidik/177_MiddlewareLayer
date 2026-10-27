@@ -35,6 +35,9 @@ app.use((req, res, next) => {
 //Repone Envelope
 function successResponse(res, message, data, status = 200) {
     return res.status(status).json({
-
+        status: "true",
+        message,
+        data,
+        error: null
     })
 }
