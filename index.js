@@ -148,6 +148,12 @@ app.put(
             'UPDATE biodata SET nama = $1, nim = $2, kelas = $3 WHERE id = $4 RETURNING *',
             [nama, nim, kelas, id]
         )
-        return successResponse(res, "Data updated successfully", result.rows[0])
+
+        if (result.rowCount === 0) {
+            return errorResponse(res, 
+                "Data not found", 
+                404)
+        }
+
     }
 )
