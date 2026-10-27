@@ -155,5 +155,9 @@ app.put(
                 404)
         }
 
+        return successResponse(
+            res, 
+            "Data updated successfully", 
+            result.rows[0])
     }
 )
