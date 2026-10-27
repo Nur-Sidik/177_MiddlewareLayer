@@ -18,3 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //Middleware
+app.use((req, res, next) => {
+    const start = Date.now()
+
+})
