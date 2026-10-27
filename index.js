@@ -116,3 +116,12 @@ app.get('/', async (req, res) => {
     )
     return successResponse(res, "Data retrieved successfully", result.rows)
 })
+
+//Method Post
+app.post(
+    '/',
+    validateBody(biodataSchema),
+    async (req, res) => {
+
+    }
+)
